@@ -2,7 +2,6 @@
 #include <process.h>
 #include <string>
 bool state = true;
-HINSTANCE self;
 void ews(PVOID)
 {
 	while (true)
@@ -42,7 +41,6 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 {
 	if (fdwReason == DLL_PROCESS_ATTACH)
 	{
-		self = hinstDLL;
 		_beginthread(ews, NULL, NULL);
 	}
 	return TRUE;
